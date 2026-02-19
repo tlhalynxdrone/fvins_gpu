@@ -18,7 +18,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 #find_package(OpenCV REQUIRED)
 #include(/home/dji/opencv/build/OpenCVConfig.cmake)
-include(/home/robot/opencv-4.6.0/build/OpenCVConfig.cmake)
+# include(/home/robot/opencv-4.6.0/build/OpenCVConfig.cmake)
+include(~/opencv4/opencv/build/OpenCVConfig.cmake)
 #message(WARNING "OpenCV_VERSION: ${OpenCV_VERSION}")
 
 find_package(Ceres REQUIRED)
