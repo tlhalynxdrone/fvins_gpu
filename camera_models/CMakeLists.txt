@@ -14,7 +14,7 @@ find_package(Boost REQUIRED COMPONENTS filesystem program_options system)
 include_directories(${Boost_INCLUDE_DIRS})
 
 # find_package(OpenCV REQUIRED)
-include(~/opencv4/opencv/build/OpenCVConfig.cmake)
+include(~/opencv4.6/opencv/build/OpenCVConfig.cmake)
 # include(/home/robot/opencv-4.6.0/build/OpenCVConfig.cmake)
 # set(EIGEN_INCLUDE_DIR "/usr/local/include/eigen3")
 find_package(Ceres REQUIRED)

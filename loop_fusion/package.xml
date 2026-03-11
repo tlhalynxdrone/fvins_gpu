@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>loop_fusion</name>
+  <name>loop_fusion_gpu</name>
   <version>0.0.0</version>
   <description>loop_fusion package</description>
 
