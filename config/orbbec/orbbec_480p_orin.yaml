@@ -35,7 +35,7 @@ use_gpu_acc_flow: 1
 
 
 #feature traker paprameters
-max_cnt: 50           #200   # max feature number in feature tracking
+max_cnt: 100           #200   # max feature number in feature tracking
 min_dist: 20                 # min distance between two features
 freq: 0              #10    # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image
 F_threshold: 1.0              # ransac threshold (pixel)
@@ -44,12 +44,12 @@ flow_back: 1             # perform forward and backward optical flow to improve 
 equalize: 1            #0     # if image is too dark or light, trun on equalize to find enough features
 fisheye: 0             #0     # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
 use_fast: 1                   # if it equals to 1, we extract and track fast feature, otherwise we use GFTT from opencv
-use_rgbd: 1           #0     # if using rgbd camera, turn on it. Depth residuals will be added to sliding window optimization and initialization
+use_rgbd: 0           #0     # if using rgbd camera, turn on it. Depth residuals will be added to sliding window optimization and initialization
 min_fast_resp: 7              # min response of fast feature
 
 
 #optimization parameters
-max_solver_time: 0.01         # max solver itration time (ms), to guarantee real time
+max_solver_time: 0.08         # max solver itration time (ms), to guarantee real time
 max_num_iterations: 8      #8   # max solver itrations, to guarantee real time
 keyframe_parallax: 10.0       # keyframe selection threshold (pixel)
 reproj_threshold: 5.0
