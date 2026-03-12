@@ -15,7 +15,7 @@ cam0_calib: "orbbec_calib.yaml"
 image_width: 848
 image_height: 480
 # Extrinsic parameter between IMU and Camera.
-estimate_extrinsic: 0   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
+estimate_extrinsic: 1   # 0  Have an accurate extrinsic parameters. We will trust the following imu^R_cam, imu^T_cam, don't change it.
                         # 1  Have an initial guess about extrinsic parameters. We will optimize around your initial guess.
                         # 2  Don't know anything about extrinsic parameters. You don't need to give R,T. We will try to calibrate it. Do some rotation movement at beginning.                        
 #If you choose 0 or 1, you should write down the following matrix.
@@ -30,16 +30,16 @@ body_T_cam0: !!opencv-matrix
             0.000, 0.000, 0.000, 1.000]
 
 multiple_thread: 1
-# use_gpu: 1
-# use_gpu_acc_flow: 1
+use_gpu: 1
+use_gpu_acc_flow: 1
 
 
 #feature traker paprameters
-max_cnt: 200           #200   # max feature number in feature tracking
+max_cnt: 50           #200   # max feature number in feature tracking
 min_dist: 20                 # min distance between two features
-freq: 20              #10    # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image
+freq: 0              #10    # frequence (Hz) of publish tracking result. At least 10Hz for good estimation. If set 0, the frequence will be same as raw image
 F_threshold: 1.0              # ransac threshold (pixel)
-show_track: 0         #1     # publish tracking image as topic
+show_track: 1         #1     # publish tracking image as topic
 flow_back: 1             # perform forward and backward optical flow to improve feature tracking accuracy
 equalize: 1            #0     # if image is too dark or light, trun on equalize to find enough features
 fisheye: 0             #0     # if using fisheye, trun on it. A circle mask will be loaded to remove edge noisy points
@@ -49,7 +49,7 @@ min_fast_resp: 7              # min response of fast feature
 
 
 #optimization parameters
-max_solver_time: 0.08         # max solver itration time (ms), to guarantee real time
+max_solver_time: 0.01         # max solver itration time (ms), to guarantee real time
 max_num_iterations: 8      #8   # max solver itrations, to guarantee real time
 keyframe_parallax: 10.0       # keyframe selection threshold (pixel)
 reproj_threshold: 5.0
@@ -64,7 +64,7 @@ g_norm: 9.805       # gravity magnitude
 #loop closure parameters
 loop_closure: 1                    # start loop closure
 fast_relocalization: 1            # useful in real-time and large project
-load_previous_pose_graph: 1        # load and reuse previous pose graph; load from 'pose_graph_save_path'
+load_previous_pose_graph: 0        # load and reuse previous pose graph; load from 'pose_graph_save_path'
 pose_graph_save_path: "/home/orin2/missions/pose_graph/" # save and load path
 save_image: 0                   # save image in pose graph for visualization prupose; you can close this function by setting 0 
 
